@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+
+    min-height: 100vh;        /* makes page as tall as the screen */
+    display: flex;            /* enables layout control */
+    flex-direction: column;   /* stacks header, main, footer */
+}
+
+.main-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+
+}
+
+nav {
+    margin-top: 20px;
+}
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+
+}
+
+nav ul li a:hover {
+    background-color: #34495e;
+    border-radius: 4px;
+}
+
+
+
+main {
+    width: 90%;
+    max-width: 1000%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+
+    flex: 1;   /* pushes the footer to the bottom */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #2c3e50;
+    color: white;
+}
+
+
+section {
+    margin-bottom: 30px;      /* space between sections */
+}
+
+section h2 {
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+
+.project {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 600px) {
+
+    nav ul {
+        flex-direction: column;   
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;      
+    }
+
+    main {
+        width: 95%;               /* use more screen space */
+        padding: 15px;
+    }
+}
+#education,
+#work-experience,
+#skills,
+#projects,
+#interests,
+#contact-me {
+    padding: 10px;
+}
+
+.skill-logo {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-left: 10px;
+}
