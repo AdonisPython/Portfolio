@@ -36,7 +36,7 @@
             <div class="project-grid">
 
                 <!-- AstonCV -->
-                <div class="project-card">
+                <div class="project-card" onclick="openAstonCV()">
                     <h3>AstonCV</h3>
                     <p>PHP & MySQL Web Application</p>
                 </div>
@@ -69,7 +69,112 @@
 
         </section>
 
+    
+                <!-- AstonCV popup -->
+        <div id="astoncv-modal" class="project-modal">
 
+            <div class="modal-content">
+
+                <!-- Close button -->
+                <button class="close-modal"
+                        onclick="closeAstonCV()">
+                    X
+                </button>
+
+                <h2>AstonCV</h2>
+
+                <p>
+                    AstonCV is a database-driven CV web application developed
+                    using PHP and MySQL. Users can register, log in and manage
+                    their own CV profile, while visitors can browse CVs, search
+                    by name or programming language, and view individual profiles.
+                </p>
+
+                <p>
+                    The project uses PHP sessions for authentication, password
+                    hashing for storing passwords securely, a prepared SQL
+                    statement for login queries, and dynamic database content
+                    displayed through PHP.
+                </p>
+
+                <p>
+                    <strong>Technologies:</strong> PHP, MySQL, SQL, HTML, XAMPP
+                </p>
+
+                <!-- Button that reveals the code -->
+                <button class="code-button"
+                        onclick="showAstonCode()">
+                    View Code
+                </button>
+
+
+                <!-- Hidden code section -->
+                <div id="astoncv-code" class="code-section">
+
+                    <h3>Login and Authentication</h3>
+
+                    <p>
+                        A prepared SQL statement retrieves the account using
+                        the entered email. The password is then checked against
+                        the stored password hash before a session is created.
+                    </p>
+
+                    <pre><code>$stmt = $conn->prepare("SELECT * FROM cvs WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows == 1) {
+    $row = $result->fetch_assoc();
+
+    if (password_verify($password, $row["password"])) {
+        $_SESSION["user_id"] = $row["id"];
+        $_SESSION["user_name"] = $row["name"];
+
+        header("Location: index.php");
+        exit();
+    }
+}</code></pre>
+
+
+                    <h3>Password Hashing</h3>
+
+                    <p>
+                        When a user registers, their password is hashed before
+                        it is stored in the database rather than storing the
+                        original password.
+                    </p>
+
+                    <pre><code>$password = password_hash(
+    $_POST["password"],
+    PASSWORD_DEFAULT
+);</code></pre>
+
+
+                    <h3>Dynamic CV Display</h3>
+
+                    <p>
+                        CV information is retrieved from MySQL and PHP generates
+                        the page content from each database record.
+                    </p>
+
+                    <pre><code>while ($row = $result->fetch_assoc()) {
+    echo "&lt;div&gt;";
+    echo "&lt;h3&gt;" . htmlspecialchars($row["name"]) . "&lt;/h3&gt;";
+    echo "&lt;p&gt;Email: " . htmlspecialchars($row["email"]) . "&lt;/p&gt;";
+    echo "&lt;p&gt;Key Programming Language: "
+        . htmlspecialchars($row["keyprogramming"]) . "&lt;/p&gt;";
+
+    echo "&lt;a href='cv.php?id=" . $row["id"] . "'&gt;View Details&lt;/a&gt;";
+    echo "&lt;/div&gt;&lt;hr&gt;";
+}</code></pre>
+
+                </div>
+
+            </div>
+
+        </div>
+        
         <!-- AdventureScape popup -->
         <div id="adventurescape-modal" class="project-modal">
 
