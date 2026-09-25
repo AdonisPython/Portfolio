@@ -72,3 +72,30 @@ function validateform() {
 
     return confirm(message);  // asks user to confirm
 }
+
+
+// Opens the AdventureScape project popup
+function openAdventureScape() {
+    document.getElementById("adventurescape-modal").style.display = "block";
+}
+
+
+// Closes the AdventureScape project popup
+function closeAdventureScape() {
+    document.getElementById("adventurescape-modal").style.display = "none";
+
+    // Hide the code again when the project is closed
+    document.getElementById("adventurescape-code").style.display = "none";
+}
+
+
+// Shows or hides the AdventureScape code
+function showAdventureCode() {
+    var code = document.getElementById("adventurescape-code");
+
+    if (code.style.display === "block") {
+        code.style.display = "none";
+    } else {
+        code.style.display = "block";
+    }
+}
