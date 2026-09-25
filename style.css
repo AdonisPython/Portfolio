@@ -81,11 +81,7 @@ section h2 {
 }
 
 
-.project {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-bottom: 20px;
-}
+
 
 
 @media (max-width: 600px) {
@@ -119,4 +115,54 @@ section h2 {
     object-fit: contain;
     vertical-align: middle;
     margin-left: 10px;
+}
+
+/* Portfolio project grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* Individual project card */
+.project-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Slight effect when hovering over a project */
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Project images */
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.project-card h3 {
+    margin: 10px 0 5px;
+    color: #2c3e50;
+}
+
+.project-card p {
+    margin: 0;
+}
+
+/* On smaller screens, show one project per row */
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
 }
