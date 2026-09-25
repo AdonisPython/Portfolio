@@ -99,3 +99,30 @@ function showAdventureCode() {
         code.style.display = "block";
     }
 }
+
+
+// Opens the AstonCV project popup
+function openAstonCV() {
+    document.getElementById("astoncv-modal").style.display = "block";
+}
+
+
+// Closes the AstonCV project popup
+function closeAstonCV() {
+    document.getElementById("astoncv-modal").style.display = "none";
+
+    // Hide the code again when the project is closed
+    document.getElementById("astoncv-code").style.display = "none";
+}
+
+
+// Shows or hides the AstonCV code
+function showAstonCode() {
+    var code = document.getElementById("astoncv-code");
+
+    if (code.style.display === "block") {
+        code.style.display = "none";
+    } else {
+        code.style.display = "block";
+    }
+}
