@@ -174,6 +174,109 @@ if ($result->num_rows == 1) {
             </div>
 
         </div>
+
+
+                <!-- AI Search Algorithms popup -->
+        <div id="ai-search-modal" class="project-modal">
+
+            <div class="modal-content">
+
+                <!-- Close button -->
+                <button class="close-modal"
+                        onclick="closeAISearch()">
+                    X
+                </button>
+
+                <h2>AI Search Algorithms</h2>
+
+                <p>
+                    Completed as part of a university Artificial Intelligence
+                    practical using Google Colab and Jupyter Notebook (.ipynb)
+                    files. The practical involved using Python to explore
+                    uninformed search algorithms and how they can be used to
+                    search through different states and find a solution.
+                </p>
+
+                <p>
+                    I worked with Depth-First Search (DFS) and Breadth-First
+                    Search (BFS), using Python data structures such as lists,
+                    sets, dictionaries and queues. These techniques were also
+                    applied to an 8-puzzle problem, where BFS was used to search
+                    through possible puzzle states and find a path towards the
+                    solution.
+                </p>
+
+                <p>
+                    <strong>Technologies:</strong> Python, Google Colab,
+                    Jupyter Notebook
+                </p>
+
+                <!-- Button that reveals the code -->
+                <button class="code-button"
+                        onclick="showAISearchCode()">
+                    View Code
+                </button>
+
+
+                <!-- Hidden code section -->
+                <div id="ai-search-code" class="code-section">
+
+                    <h3>Depth-First Search</h3>
+
+                    <p>
+                        DFS uses a stack to explore one path through the graph
+                        before returning to explore other paths.
+                    </p>
+
+                    <pre><code>def dfs(graph, start):
+    visited = set()
+    stack = [start]
+
+    while stack:
+        node = stack.pop()
+
+        if node not in visited:
+            visited.add(node)
+
+            for neighbour in graph[node]:
+                if neighbour not in visited:
+                    stack.append(neighbour)
+
+    return visited</code></pre>
+
+
+                    <h3>Breadth-First Search</h3>
+
+                    <p>
+                        BFS uses a queue to explore nodes level by level rather
+                        than following one path first.
+                    </p>
+
+                    <pre><code>from collections import deque
+
+def bfs(graph, start):
+    visited = set()
+    queue = deque([start])
+
+    while queue:
+        node = queue.popleft()
+
+        if node not in visited:
+            visited.add(node)
+
+            for neighbour in graph[node]:
+                if neighbour not in visited:
+                    queue.append(neighbour)
+
+    return visited</code></pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
         
         <!-- AdventureScape popup -->
         <div id="adventurescape-modal" class="project-modal">
