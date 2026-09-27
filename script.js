@@ -154,3 +154,30 @@ function showAISearchCode() {
         code.style.display = "block";
     }
 }
+
+
+// Opens the Arduino project popup
+function openArduino() {
+    document.getElementById("arduino-modal").style.display = "block";
+}
+
+
+// Closes the Arduino project popup
+function closeArduino() {
+    document.getElementById("arduino-modal").style.display = "none";
+
+    // Hide the code again when the project is closed
+    document.getElementById("arduino-code").style.display = "none";
+}
+
+
+// Shows or hides the Arduino code
+function showArduinoCode() {
+    var code = document.getElementById("arduino-code");
+
+    if (code.style.display === "block") {
+        code.style.display = "none";
+    } else {
+        code.style.display = "block";
+    }
+}
