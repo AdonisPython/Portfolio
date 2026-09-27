@@ -126,3 +126,31 @@ function showAstonCode() {
         code.style.display = "block";
     }
 }
+
+
+
+// Opens the AI Search project popup
+function openAISearch() {
+    document.getElementById("ai-search-modal").style.display = "block";
+}
+
+
+// Closes the AI Search project popup
+function closeAISearch() {
+    document.getElementById("ai-search-modal").style.display = "none";
+
+    // Hide the code again when the project is closed
+    document.getElementById("ai-search-code").style.display = "none";
+}
+
+
+// Shows or hides the AI Search code
+function showAISearchCode() {
+    var code = document.getElementById("ai-search-code");
+
+    if (code.style.display === "block") {
+        code.style.display = "none";
+    } else {
+        code.style.display = "block";
+    }
+}
