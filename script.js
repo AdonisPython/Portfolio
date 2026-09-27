@@ -45,23 +45,6 @@ function validateform() {
     return false;
 }
 
-    // This gets the preferred contacting method
-    var contactmethod = document.querySelector('input[name="contactmethod"]:checked').value;
-
-
-    var message = "To: adonisashti@gmail.com\n\n" +
-                "First Name: " + firstname + "\n" +
-                "Description: " + description + "\n" +
-                "Email: " + email + "\n" +
-                "Phone: " + phone + "\n" +
-                "Project Date: " + projectdate + "\n" +
-                "Duration: " + duration + " days\n" +
-                "Preferred Contact: " + contactmethod + "\n\n" +
-                "Confirm submission?";
-
-
-    return confirm(message);  // asks user to confirm
-}
 
 
 // Opens the AdventureScape project popup
