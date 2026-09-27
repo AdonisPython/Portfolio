@@ -51,7 +51,7 @@
                 </div>
 
                 <!-- Arduino -->
-                <div class="project-card">
+                <div class="project-card" onclick="openArduino()">
                     <img src="arduino.png"
                          alt="Arduino project">
 
@@ -276,7 +276,112 @@ def bfs(graph, start):
 
         </div>
 
-        
+                <!-- Arduino Project popup -->
+        <div id="arduino-modal" class="project-modal">
+
+            <div class="modal-content">
+
+                <!-- Close button -->
+                <button class="close-modal"
+                        onclick="closeArduino()">
+                    X
+                </button>
+
+                <h2>Arduino Project</h2>
+
+                <img src="arduino.png"
+                     alt="Arduino project"
+                     class="modal-project-image">
+
+                <p>
+                    Completed as part of a university group project using an
+                    Arduino and a range of sensors and components. The project
+                    involved programming different embedded systems and
+                    displaying real-time information using an OLED display.
+                </p>
+
+                <p>
+                    One task involved creating a mini weather station that
+                    measured temperature, humidity and air pressure. An
+                    adjustable temperature threshold could be set using a
+                    potentiometer, with a buzzer warning when the temperature
+                    exceeded the selected value.
+                </p>
+
+                <p>
+                    Another task involved creating an automatic night-light
+                    system. An LDR measured the surrounding light level and
+                    switched an LED on when it became darker than the threshold
+                    set using a potentiometer. Sensor readings and the LED
+                    status were also displayed on an OLED screen.
+                </p>
+
+                <p>
+                    <strong>Technologies:</strong> Arduino, C++, Sensors,
+                    OLED Display
+                </p>
+
+                <!-- Button that reveals the code -->
+                <button class="code-button"
+                        onclick="showArduinoCode()">
+                    View Code
+                </button>
+
+
+                <!-- Hidden code section -->
+                <div id="arduino-code" class="code-section">
+
+                    <h3>Weather Station</h3>
+
+                    <p>
+                        Temperature, humidity and air pressure are read from
+                        the sensors, while the potentiometer controls the
+                        temperature warning threshold.
+                    </p>
+
+                    <pre><code>temperature  = dht.readTemperature();
+humidity     = dht.readHumidity();
+air_pressure = bmp280.getPressure() / 100.0;
+
+int potentiometer = analogRead(rotaryPin);
+temp_threshold = map(potentiometer, 0, 1023, 80, 20);
+
+if (temperature &gt; temp_threshold) {
+    u8x8.setCursor(0, 1);
+    u8x8.print("!! TOO HOT !!");
+
+    for (int count = 0; count &lt; 5; count++) {
+        digitalWrite(BuzzerPin, HIGH);
+        delay(200);
+        digitalWrite(BuzzerPin, LOW);
+        delay(200);
+    }
+}</code></pre>
+
+
+                    <h3>Automatic Night Light</h3>
+
+                    <p>
+                        The LDR measures the surrounding light level and the
+                        potentiometer sets the threshold. The LED switches on
+                        automatically when the measured light falls below it.
+                    </p>
+
+                    <pre><code>lightLevel = analogRead(LDR_PIN);
+thresholdValue = analogRead(POT_PIN);
+
+if (lightLevel &lt; thresholdValue) {
+    digitalWrite(LED_PIN, HIGH);
+} else {
+    digitalWrite(LED_PIN, LOW);
+}</code></pre>
+
+                </div>
+
+            </div>
+
+        </div>
+
         
         <!-- AdventureScape popup -->
         <div id="adventurescape-modal" class="project-modal">
