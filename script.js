@@ -13,47 +13,37 @@ function checkemail() {
     return true; // The emails match
 }
 
-function checkdate() {
-    var projectdate = document.getElementById("projectdate").value;
-    var today = new Date();
 
-    today.setDate(today.getDate() +1); // atleast 1 day in the future
-
-    var selected_date = new Date(projectdate);
-
-    if (selected_date < today) {
-        alert("The project date must be at least 1 day in the future");
-        return false;
-    }
-    return true;
-
-}
 
 
 function validateform() {
 
-    // It will first check emails
-    if (!checkemail()) return false;
-
-    // then it will check the date
-    if (!checkdate()) return false;
-
-    // This gathers all the data in the form
-
-    var firstname = document.getElementById("firstname").value;
-    var description = document.getElementById("description").value;
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-    var projectdate = document.getElementById("projectdate").value;
-  
-
-    var duration = document.getElementById("duration").value;
-    // to make sure the duration number is a positive number
-
-    if (duration <= 0) {
-        alert("The Project Duration must be a positive number");
+    // Check that both email addresses match
+    if (!checkemail()) {
         return false;
     }
+
+    // Get the information from the form
+    var firstname = document.getElementById("firstname").value;
+    var email = document.getElementById("email").value;
+    var subject = document.getElementById("subject").value;
+    var message = document.getElementById("message").value;
+
+    // Create the email
+    var emailBody =
+        "Name: " + firstname + "\n" +
+        "Email: " + email + "\n\n" +
+        message;
+
+    // Open the user's email application
+    window.location.href =
+        "mailto:adonisashti@gmail.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(emailBody);
+
+    // Stop the HTML form from submitting normally
+    return false;
+}
 
     // This gets the preferred contacting method
     var contactmethod = document.querySelector('input[name="contactmethod"]:checked').value;
