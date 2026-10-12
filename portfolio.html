@@ -68,39 +68,106 @@
                     <h3>Python Soundboard Application</h3>
                     <p>Python & GUI Development</p>
                 </div>
-
             </div>
 
         </section>
 
 
-        <!-- Python Soundboard popup -->
+                <!-- Python Soundboard popup -->
         <div id="soundboard-modal" class="project-modal">
         
             <div class="modal-content">
         
+                <!-- Close button -->
                 <button class="close-modal" onclick="closeSoundboard()">
                     X
                 </button>
         
                 <h2>Python Soundboard Application</h2>
         
+                <img src="arnie.png"
+                     alt="Arnold Schwarzenegger soundboard project"
+                     class="modal-project-image">
+        
                 <p>
                     Developed an interactive soundboard application using Python
                     and guizero as part of a university programming practical.
-                    The application featured six buttons that played different
-                    Arnold Schwarzenegger movie quotes, alongside an exit button
-                    with its own audio effect.
+                    The application features six buttons that play different
+                    Arnold Schwarzenegger movie quotes, alongside an Exit
+                    button that plays a separate audio clip.
                 </p>
         
                 <p>
-                    Used functions and event-driven programming to connect button
-                    interactions with audio playback.
+                    Used functions and event-driven programming to connect
+                    button interactions with audio playback.
                 </p>
         
                 <p>
                     <strong>Technologies:</strong> Python, guizero, playsound3
                 </p>
+        
+                <!-- View Code button -->
+                <button class="code-button" onclick="showSoundboardCode()">
+                    View Code
+                </button>
+        
+                <!-- Hidden code section -->
+                <div id="soundboard-code" class="code-section">
+        
+                    <h3>Soundboard GUI and Audio Playback</h3>
+        
+                    <p>
+                        The application uses guizero to create the graphical
+                        interface. Each button uses a lambda function to play
+                        a different audio file when clicked.
+                    </p>
+        
+                    <pre><code>from guizero import App, Text, Box, PushButton, Picture
+        from playsound3 import playsound
+        import os
+        
+        app = App(title="Arnold")
+        app.bg = "azure3"
+        
+        message = Text(app, text="Arnie-Nator Movie Quoter", size=20, font="Rockwell Extra Bold")
+        
+        box = Box(app, layout="grid", grid=[0,0])
+        
+        picture = Picture(app, image="picture.png")
+        
+        def play_sound(file_path):
+            playsound(file_path)
+        
+        sound_file = "sound1.wav"
+        absolute_sound_path = os.path.join(os.getcwd(), sound_file)
+        
+        def button_click():
+            message.value = "Button pressed"
+        
+        button1 = PushButton(box, text="Arnie!", command=lambda: play_sound("sound1.wav"), grid=[0,0])
+        button1.bg = "cyan"
+        
+        button2 = PushButton(box, text="Arnie!", command=lambda: play_sound("sound2.wav"), grid=[1,0])
+        button2.bg = "#00FF00"
+        
+        button3 = PushButton(box, text="Arnie!", command=lambda: play_sound("sound3.wav"), grid=[2,0])
+        button3.bg = "#FFFFCC"
+        
+        button4 = PushButton(box, text="Arnie!", command=lambda: play_sound("sound4.wav"), grid=[0,1])
+        button4.bg = "orange"
+        
+        button5 = PushButton(box, text="Arnie!", command=lambda: play_sound("sound5.wav"), grid=[1,1])
+        button5.bg = "red"
+        
+        button6 = PushButton(box, text="Arnie!", command=lambda: play_sound("sound6.wav"), grid=[2,1])
+        button6.bg = "#FF33CC"
+        
+        button7 = PushButton(box, text="Exit", command=lambda: play_sound("exit.wav"), grid=[1,3])
+        button7.bg = "yellow"
+        
+        app.display()</code></pre>
+        
+                </div>
         
             </div>
         
