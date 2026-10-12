@@ -145,6 +145,15 @@ section h2 {
 
 }
 
+/* Centre the fifth project card */
+.soundboard-card {
+    grid-column: 1 / -1;
+    width: calc((100% - 25px) / 2);
+    box-sizing: border-box;
+    justify-self: center;
+}
+
+
 /* Slight effect when hovering over a project */
 .project-card:hover {
     transform: translateY(-4px);
@@ -173,6 +182,10 @@ section h2 {
 @media (max-width: 600px) {
     .project-grid {
         grid-template-columns: 1fr;
+    }
+
+    .soundboard-card {
+        width: 100%;
     }
 }
 
