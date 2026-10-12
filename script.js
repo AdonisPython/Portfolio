@@ -154,3 +154,15 @@ function showArduinoCode() {
         code.style.display = "block";
     }
 }
+
+function openSoundboard() {
+    document.getElementById("soundboard-modal").style.display = "block";
+}
+
+function closeSoundboard() {
+    document.getElementById("soundboard-modal").style.display = "none";
+}
+
+function showSoundboardCode() {
+    document.getElementById("soundboard-code").style.display = "block";
+}
